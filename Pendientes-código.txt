@@ -1,0 +1,13 @@
+1. Corregir la resistencia asignada por tabla una vez leido el nivel de voltaje. Solo muestra bien los primeros
+3 valores.
+
+2. El botón YK_DE en la interrupción pin 18, debe liberar un mensaje de que el yakko ha sido detectado y cuando
+pasa esto, la tabla de reles es otra pero asignaada a los mismos modos A1-A2. No se si hacer ese apartado dentro
+de la interrupción o afuera.
+
+3. Hacer el código de la lectura de voltaje sea con el sensor ZMPT101B, así estar pendiente entre los niveles
+0-250 VRMS.
+
+4. Para la lectura de la corriente tengo que rectificar la señal, sé hacer eso con opanes, pero esta señal rectifi-
+cada tiene que llegar a un ADC con I2C para que el arduino haga una lectura adecuada, así que propongo el ADS1115 
+ya que está en mercadolibre. Ahora... no sé como sería este código. Acepto ideas.
