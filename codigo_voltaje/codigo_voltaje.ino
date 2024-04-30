@@ -82,7 +82,7 @@ float get_VRMS() {
 
 float get_IZ() {
   float voltaje = analogRead(A0) * (5.0 / 1023.0);  // Convertir la lectura ADC a voltaje
-  float corriente = mapFloat(voltaje, 0.0, 5.0, 125.0, 200000.0, 3) / 1000;
+  float corriente = mapFloat(voltaje, 0.0, 5.0, 700.0, 200000.0, 3) / 1000;
   EEPROM.put(currentAddress, corriente);
   mostrarPantalla("Corriente: ", "");
   lcd.setCursor(0, 1);

@@ -4,42 +4,30 @@ void encender_reles(int reles[8], int valores[8]) {
   }
 }
 
+void guardar_info_rele(const float & valor_resistencia) {
+    EEPROM.put(resistanceAddress, valor_resistencia);
+    Serial.print("Resistencia eqv guardada.");
+    Serial.println(valor_resistencia);
+}
+
 void prender_rele(float v, int red[8], int VALORES_RED[5][8], float VALOR_R[5]) {
   Serial.println("PRENDIENDO RELES");
-  if (v >= 25 && v <= 50) {
+  if (v > 0 && v <= 50) {
     encender_reles(red, VALORES_RED[0]);
-    float R = VALOR_R[0];
-    EEPROM.put(resistanceAddress, R);
-    Serial.print("Resistencia eqv.");
-    Serial.println(R);
-  }
-  if (v >= 60 && v <= 90) {
+    guardar_info_rele(VALOR_R[0]);
+  } else if (v > 50 && v <= 100) {
     digitalWrite(3, HIGH);
-    encender_reles(red, VALORES_RED[0]);
-    float R = VALOR_R_A1[1];
-    EEPROM.put(resistanceAddress, R);
-    Serial.print("Resistencia eqv.");
-    Serial.println(R);
-
-  } else if (v >= 110 && v <= 140) {
+    encender_reles(red, VALORES_RED[1]);
+    guardar_info_rele(VALOR_R[1]);
+   } else if (v > 100 && v <= 150) {
     digitalWrite(4, HIGH);
     encender_reles(red, VALORES_RED[2]);
-    float R = VALOR_R_A1[2];
-    EEPROM.put(resistanceAddress, R);
-    Serial.print("Resistencia eqv: ");
-    Serial.println(R);
-
-  } else if (v >= 160 && v <= 190) {
+    guardar_info_rele(VALOR_R[2]);
+} else if (v > 150 && v <= 190) {
     encender_reles(red, VALORES_RED[3]);
-    float R = VALOR_R_A1[3];
-    EEPROM.put(resistanceAddress, R);
-    Serial.print("Resistencia eqv. ");
-    Serial.println(R);
-
-  } else if (v >= 200) {
+    guardar_info_rele(VALOR_R[3]);
+   } else if (v > 190) {
     encender_reles(red, VALORES_RED[4]);
-    float R = VALOR_R_A1[4];
-    Serial.print("Resistencia eqv. ");
-    Serial.println(R);
+    guardar_info_rele(VALOR_R[4]);
   }
 }
