@@ -2,8 +2,7 @@
 
 void ModoA2() {
   Serial.println("Entrando a estado A2");
-  mostrarPantalla("Estas en modo A2", "");
-  delay(500);
+  mostrarPantalla("Estas en modo A2", "Realizando mediciones");
   float v = get_VRMS();
   EEPROM.put(voltageAddress, v);
   lcd.clear();

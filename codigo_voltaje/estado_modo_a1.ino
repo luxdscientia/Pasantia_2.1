@@ -2,9 +2,11 @@
 
 void ModoA1() {
   Serial.println("Entrando a estado A1");
-  mostrarPantalla("Estas en modo A1", "");
-  delay(500);
-  float v = get_VRMS();
+  mostrarPantalla("Estas en modo A1", "Realizando mediciones");
+  // float v = get_VRMS();
+  configurar_medicion_alterna(240, 10);
+  while(loop_medicion_alterna(&get_digital_VIN));
+  float v = obtener_valor_rms();
   EEPROM.put(voltageAddress, v);
   lcd.clear();
   lcd.print("voltaje");

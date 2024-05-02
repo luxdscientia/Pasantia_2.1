@@ -70,6 +70,13 @@ void mostrarPantalla(String linea1, String linea2) {
   lcd.print(linea2);
 }
 
+int get_digital_VIN() {
+  return analogRead(A2);
+}
+
+int get_digital_IZ() {
+  return analogRead(A0);
+}
 
 float get_VRMS() {
   float vin = map(analogRead(A2), 0, 1023, 0.0, 5.0);
