@@ -17,6 +17,10 @@ const int A_1 = 26;
 const int A_2 = 24;
 const int SIG = 22;
 const int PIN_OFF = 5;
+
+#include "Boton.h"
+Button buttonA1(26, true), buttonA2(24, true), buttonSIG(22, true);
+
 const int yk = 18;
 bool YKD;
 const int voltageAddress = 0;  //COnfig para guardar datos en la eeprom
@@ -28,13 +32,10 @@ bool estaCambiandoEstado = true;
 void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2);
-  pinMode(A_1, INPUT);
-  pinMode(A_2, INPUT);
-  pinMode(SIG, INPUT);
+  // pinMode(A_1, INPUT);
+  // pinMode(A_2, INPUT);
+  // pinMode(SIG, INPUT);
   pinMode(A2, INPUT);
-  digitalWrite(A_1, LOW);
-  digitalWrite(A_2, LOW);
-  digitalWrite(SIG, LOW);
 
   //SALIDA RED A1
   for (int i = 2; i < 2 + 5; i += 1) {
@@ -60,7 +61,7 @@ void off_reles() {
 void yakoactivo() {
   if (digitalRead(yk) == HIGH) {
     mostrarPantalla("YAKOB DETECTADO", "Cambiando red Z");
-     Serial.println("YAKOB CONECTADO");
+    Serial.println("YAKOB CONECTADO");
     YKD = true;
     Serial.println(YKD);
     delay(1000);
@@ -76,7 +77,6 @@ void yakoactivo() {
     off_reles();
     estaCambiandoEstado = true;
     estado = EstadoPrograma::MenuPrincipal;
-    
   }
 }
 
