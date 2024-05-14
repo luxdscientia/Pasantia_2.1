@@ -17,6 +17,8 @@ const int A_1 = 26;
 const int A_2 = 24;
 const int SIG = 22;
 const int PIN_OFF = 5;
+const int yk = 18;
+bool YKD;
 const int voltageAddress = 0;  //COnfig para guardar datos en la eeprom
 const int currentAddress = sizeof(float);
 const int resistanceAddress = 2 * sizeof(float);
@@ -43,7 +45,7 @@ void setup() {
     pinMode(i, OUTPUT);
   }
 
-  attachInterrupt(digitalPinToInterrupt(18), yakoactivo, RISING);
+  attachInterrupt(digitalPinToInterrupt(18), yakoactivo, CHANGE);
 }
 void off_reles() {
   // SALIDA RED A1
@@ -56,12 +58,28 @@ void off_reles() {
   }
 }
 void yakoactivo() {
-  mostrarPantalla("YAKOB DETECTADO", "Calculando nuevo valor I");
-  delay(5000);
-  off_reles();
-  estaCambiandoEstado = true;
-  estado = EstadoPrograma::MenuPrincipal;
+  if (digitalRead(yk) == HIGH) {
+    mostrarPantalla("YAKOB DETECTADO", "Cambiando red Z");
+     Serial.println("YAKOB CONECTADO");
+    YKD = true;
+    Serial.println(YKD);
+    delay(1000);
+    off_reles();
+    estaCambiandoEstado = true;
+    estado = EstadoPrograma::MenuPrincipal;
+    Serial.println("YENDO MODO A1 YK");
+  } else {
+    mostrarPantalla("YAKOB DESCONECTADO", "Cambiando red Z");
+    Serial.println("YAKOB DESCONECTADO");
+    YKD = false;
+    delay(1000);
+    off_reles();
+    estaCambiandoEstado = true;
+    estado = EstadoPrograma::MenuPrincipal;
+    
+  }
 }
+
 void mostrarPantalla(String linea1, String linea2) {
   lcd.clear();
   lcd.setCursor(0, 0);
@@ -76,35 +94,6 @@ int get_digital_VIN() {
 
 int get_digital_IZ() {
   return analogRead(A0);
-}
-
-float get_VRMS() {
-  float vin = map(analogRead(A2), 0, 1023, 0.0, 5.0);
-  float vv= map(vin, 0.0, 5.0, 25.0, 250.0 );
-  Serial.print("Vv: ");
-  Serial.println(vv);
-  return vv;
-}
-
-
-float get_IZ() {
-  float voltaje = analogRead(A0) * (5.0 / 1023.0);  // Convertir la lectura ADC a voltaje
-  float corriente = mapFloat(voltaje, 0.0, 5.0, 700.0, 200000.0, 3) / 1000;
-  EEPROM.put(currentAddress, corriente);
-  mostrarPantalla("Corriente: ", "");
-  lcd.setCursor(0, 1);
-  lcd.print(corriente, 3);
-  lcd.setCursor(6, 1);
-  lcd.print("uA");
-  Serial.print("Corriente: ");
-  Serial.print(corriente, 3);  // Imprimir con 3 decimales
-  Serial.println(" uA");
-  delay(1000);
-}
-
-float mapFloat(float x, float in_min, float in_max, float out_min, float out_max, int precision) {
-  float result = (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-  return roundf(result * powf(10, precision)) / powf(10, precision);
 }
 
 void loop() {

@@ -12,7 +12,7 @@ void guardar_info_rele(const float & valor_resistencia) {
 
 void prender_rele(float v, int red[8], int VALORES_RED[5][8], float VALOR_R[5]) {
   Serial.println("PRENDIENDO RELES");
-  if (v > 0 && v <= 50) {
+  if (v >= 0 && v <= 50) {
     encender_reles(red, VALORES_RED[0]);
     guardar_info_rele(VALOR_R[0]);
   } else if (v > 50 && v <= 100) {

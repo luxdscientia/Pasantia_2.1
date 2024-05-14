@@ -24,7 +24,7 @@ void mostrardatos() {
     lcd.print("A:");
     lcd.print(CF, 3);
     lcd.setCursor(8, 0);
-    lcd.print("uA");
+    lcd.print("mA");
     lcd.setCursor(0, 1);
     lcd.print("Vrms:");
     lcd.print(VF, 0);
@@ -34,7 +34,7 @@ void mostrardatos() {
     lcd.setCursor(15, 1);
     lcd.print("K");
 
-    delay(6000);
+    // delay(6000);
     mostrarPantalla("Repetir P. Sig", "ir a menu: A1-A2");
   }
 
