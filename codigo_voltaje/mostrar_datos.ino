@@ -4,6 +4,7 @@ void mostrardatos() {
     estaCambiandoEstado = false;
   }
   if (digitalRead(SIG) == HIGH) {
+  // if (buttonSIG.seHaPresionado()) {
     float VF;
     float CF;
     float RF;

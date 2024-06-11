@@ -1,4 +1,4 @@
-void encender_reles(int reles[8], int valores[8]) {
+void encender_reles(int reles[8], int valores[12]) {
   for (int i = 0; i < 8; i++) {
     digitalWrite(reles[i], valores[i]);
   }
@@ -10,7 +10,7 @@ void guardar_info_rele(const float & valor_resistencia) {
     Serial.println(valor_resistencia);
 }
 
-void prender_rele(float v, int red[8], int VALORES_RED[5][8], float VALOR_R[5]) {
+void prender_rele(float v, int red[8], int VALORES_RED[5][12], float VALOR_R[5]) {
   Serial.println("PRENDIENDO RELES");
   if (v >= 0 && v <= 50) {
     encender_reles(red, VALORES_RED[0]);

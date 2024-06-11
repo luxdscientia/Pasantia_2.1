@@ -19,7 +19,9 @@ const int SIG = 22;
 const int PIN_OFF = 5;
 
 #include "Boton.h"
-Button buttonA1(26, true), buttonA2(24, true), buttonSIG(22, true);
+Button buttonA1(26, true);
+Button buttonA2(24, true);
+Button buttonSIG(22, true);
 
 const int yk = 18;
 bool YKD;
@@ -33,8 +35,9 @@ void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2);
   // pinMode(A_1, INPUT);
-  // pinMode(A_2, INPUT);
-  // pinMode(SIG, INPUT);
+  pinMode(A_1, INPUT);
+  pinMode(A_2, INPUT);
+  pinMode(SIG, INPUT);
   pinMode(A2, INPUT);
 
   //SALIDA RED A1
@@ -54,17 +57,21 @@ void off_reles() {
     digitalWrite(i, LOW);
   }
   //SALIDA RED A2
-  for (int i = 8; i < 8 + 3; i += 1) {
+  for (int i = 8; i < 8 + 5; i += 1) {
+    digitalWrite(i, LOW);
+  }
+  for (int i = 14; i < 14 + 2; i += 1) {
     digitalWrite(i, LOW);
   }
 }
+
 void yakoactivo() {
   if (digitalRead(yk) == HIGH) {
     mostrarPantalla("YAKOB DETECTADO", "Cambiando red Z");
     Serial.println("YAKOB CONECTADO");
     YKD = true;
     Serial.println(YKD);
-    delay(1000);
+    delay(2000);
     off_reles();
     estaCambiandoEstado = true;
     estado = EstadoPrograma::MenuPrincipal;
@@ -73,7 +80,7 @@ void yakoactivo() {
     mostrarPantalla("YAKOB DESCONECTADO", "Cambiando red Z");
     Serial.println("YAKOB DESCONECTADO");
     YKD = false;
-    delay(1000);
+   
     off_reles();
     estaCambiandoEstado = true;
     estado = EstadoPrograma::MenuPrincipal;
