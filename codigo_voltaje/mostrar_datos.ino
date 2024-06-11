@@ -40,6 +40,7 @@ void mostrardatos() {
   }
 
   if (digitalRead(A_1) == HIGH || digitalRead(A_2) == HIGH) {
+  // if (buttonA1.seHaPresionado() || buttonA2.seHaPresionado()) {
     estado = EstadoPrograma::MenuPrincipal;
     estaCambiandoEstado = true;
   }

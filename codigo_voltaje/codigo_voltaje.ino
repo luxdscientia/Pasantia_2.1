@@ -34,7 +34,6 @@ bool estaCambiandoEstado = true;
 void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2);
-  // pinMode(A_1, INPUT);
   pinMode(A_1, INPUT);
   pinMode(A_2, INPUT);
   pinMode(SIG, INPUT);
