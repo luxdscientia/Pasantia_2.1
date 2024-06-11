@@ -1,6 +1,9 @@
+#include <LiquidCrystal_I2C.h>
+
 #include <LiquidCrystal.h>
 #include <EEPROM.h>
 
+LiquidCrystal_I2C lcd_2(0x3E, 16, 2);
 
 enum EstadoPrograma {
   MenuPrincipal,
@@ -34,6 +37,8 @@ bool estaCambiandoEstado = true;
 void setup() {
   Serial.begin(9600);
   lcd.begin(16, 2);
+  lcd_2.init();
+  lcd_2.backlight();
   pinMode(A_1, INPUT);
   pinMode(A_2, INPUT);
   pinMode(SIG, INPUT);
@@ -92,6 +97,12 @@ void mostrarPantalla(String linea1, String linea2) {
   lcd.print(linea1);
   lcd.setCursor(0, 1);
   lcd.print(linea2);
+
+  lcd_2.clear();
+  lcd_2.setCursor(0, 0);
+  lcd_2.print(linea1);
+  lcd_2.setCursor(0, 1);
+  lcd_2.print(linea2);
 }
 
 int get_digital_VIN() {
