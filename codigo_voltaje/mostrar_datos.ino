@@ -1,5 +1,6 @@
 void mostrardatos() {
   if (estaCambiandoEstado) {
+    Serial.println("Revisando datos Presione sig.");
     mostrarPantalla("Revisando datos", "Presione sig.");
     estaCambiandoEstado = false;
   }
@@ -36,6 +37,7 @@ void mostrardatos() {
     lcd.print("K");
 
     delay(6000);
+    Serial.println("Repetir P. Sig ir a menu: A1-A2");
     mostrarPantalla("Repetir P. Sig", "ir a menu: A1-A2");
   }
 

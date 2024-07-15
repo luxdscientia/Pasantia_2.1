@@ -22,7 +22,7 @@ void ModoA2() {
     EEPROM.put(currentAddress, iz);
     estado = EstadoPrograma::MostrarDatos;
     estaCambiandoEstado = true;
-    Serial.println("Saliendo de estado A1 YK");
+    Serial.println("Saliendo de estado A2 YK");
   }
 
   else {
