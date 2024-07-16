@@ -26,7 +26,7 @@
 *
 */
 
-
+#pragma once
 #ifndef TrueRMS_H_
 #define TrueRMS_H_
 
