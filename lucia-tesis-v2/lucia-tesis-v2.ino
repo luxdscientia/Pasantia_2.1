@@ -6,8 +6,8 @@
 const int rs = 5, en = 6, d4 = 8, d5 = 9, d6 = 10, d7 = 11;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 const int INICIO = 12;
-const int RELES_Rv[2] = {2,3};
-const int RELES_SW[2]={4,5};
+const int RELES_Rv[2] = { 2, 3 };
+const int RELES_SW[2] = { 4, 5 };
 
 void setup() {
   // Configurar pines de entrada y salida
@@ -21,7 +21,7 @@ void setup() {
   pinMode(5, OUTPUT);
 }
 
- int get_digital_V1() {
+int get_digital_V1() {
   return analogRead(A0);
 }
 
@@ -29,8 +29,11 @@ int get_digital_V2() {
   return analogRead(A1);
 }
 void loop() {
-  for (auto& configuracion : PRUEBAS) {
-    realizarPrueba(configuracion);
-    delay(1000);
+  
+  if (digitalRead(INICIO) == HIGH) {
+    for (auto& configuracion : PRUEBAS) {
+      realizarPrueba(configuracion);
+      delay(1000);
+    }
   }
 }
