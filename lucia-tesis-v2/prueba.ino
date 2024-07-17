@@ -10,66 +10,55 @@ void encender_reles(int reles[2], int valores[2]) {
     digitalWrite(reles[i], valores[i]);
   }
 }
-float v1[30];
-float v2[30];
+float v1[9];
+float v2[9];
 
-void configurarPrueba(int red[2],int valores[3][2]) {
+void configurarPrueba(int red[2], int valores[3][2], int i) {
   // Prender Reles
-  //Proceso A
-  encender_reles(RELES_SW, procesos[0]); 
-
-  //proceso B
-  encender_reles(RELES_SW, procesos[1]);
-  //Proceso C
-  encender_reles(RELES_SW, procesos[3]);
+  encender_reles(RELES_SW, procesos[i]);
 }
 
 
-void hacerPrueba() {
-  // Mientras 1 ciclo
+void hacerPrueba(int i) {
+  // Mientras 2 ciclos de red
   // Proceso A
   //v1
-  configurar_medicion_alterna(250, 10);
+  configurar_medicion_alterna(566, 10);  //referencia de corriente
   while (loop_medicion_alterna(&get_digital_V1))
     ;
-  v1[0] = obtener_valor_rms();
+  v1[i] = obtener_valor_rms();
+  Serial.print("V1: ");
+  Serial.println(v1[i]);
   // v2
-  configurar_medicion_alterna(250, 10);
+  configurar_medicion_alterna(707, 10);  //referencia de voltaje
   while (loop_medicion_alterna(&get_digital_V2))
     ;
-  v2[0] = obtener_valor_rms();
-  // Proceso B
-  //v1
-  configurar_medicion_alterna(250, 10);
-  while (loop_medicion_alterna(&get_digital_V1))
-    ;
-  v1[1] = obtener_valor_rms();
-  // v2
-  configurar_medicion_alterna(250, 10);
-  while (loop_medicion_alterna(&get_digital_V2))
-    ;
-  v2[1] = obtener_valor_rms();
-  // Proceso C
-  //v1
-  configurar_medicion_alterna(250, 10);
-  while (loop_medicion_alterna(&get_digital_V1))
-    ;
-  v1[2] = obtener_valor_rms();
-  // v2
-  configurar_medicion_alterna(250, 10);
-  while (loop_medicion_alterna(&get_digital_V2))
-    ;
-  v2[2] = obtener_valor_rms();
+  v2[i] = obtener_valor_rms();
+  Serial.print("V2: ");
+  Serial.println(v2[i]);
 }
 
 void enviarDatosPrueba() {
   // Mostrar los datos serial
+  for (int i = 0; i < 10; i++) {
+    Serial.print("Proceso ");
+    Serial.println(i);
+    Serial.print("V1: ");
+    Serial.println(v1[i]);
+    Serial.print("V2: ");
+    Serial.println(v2[i]);
+  }
 }
 
 
 void realizarPrueba(int configuracion[2]) {
+  Serial.println("inicio config");
   setConfiguracionPrueba(configuracion);
-  configurarPrueba(RELES_SW,procesos);
-  hacerPrueba();
+  for (int i = 0; i < 3; i++) {
+
+    configurarPrueba(RELES_SW, procesos, i);
+    hacerPrueba(i);
+  }
   enviarDatosPrueba();
+  delay(1000);
 }
