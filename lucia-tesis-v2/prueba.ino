@@ -1,9 +1,7 @@
 
-int configuracion[2];
-
 void setConfiguracionPrueba(int configuracion[2]) {
-  configuracion[0] = configuracion[0];
-  configuracion[1] = configuracion[1];
+  digitalWrite(RELES_SRV[0], configuracion[0]);
+  digitalWrite(RELES_SRV[1], configuracion[1]);
 }
 void encender_reles(int reles[2], int valores[2]) {
   for (int i = 0; i < 2; i++) {
@@ -13,9 +11,9 @@ void encender_reles(int reles[2], int valores[2]) {
 float v1[9];
 float v2[9];
 
-void configurarPrueba(int red[2], int valores[3][2], int i) {
+void configurarPrueba(int red[2], int i) {
   // Prender Reles
-  encender_reles(RELES_SW, procesos[i]);
+  encender_reles(RELES_SW, CONF_PROCESOS[i]);
 }
 
 
@@ -54,11 +52,12 @@ void enviarDatosPrueba() {
 void realizarPrueba(int configuracion[2]) {
   Serial.println("inicio config");
   setConfiguracionPrueba(configuracion);
-  for (int i = 0; i < 3; i++) {
 
-    configurarPrueba(RELES_SW, procesos, i);
+  for (int i = 0; i < 3; i++) {
+    configurarPrueba(RELES_SW, i);
     hacerPrueba(i);
   }
+
   enviarDatosPrueba();
   delay(1000);
 }
