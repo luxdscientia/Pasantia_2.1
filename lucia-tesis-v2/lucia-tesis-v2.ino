@@ -47,14 +47,19 @@ void mostrarPantalla(String linea1, String linea2) {
   lcd.print(linea2);
 }
 
+long ultima_vez_actualizo_pantalla = 0;
+int tiempo_actualizacion_pantalla = 100;
+
 void loop() {
-  mostrarPantalla("encendido", "....");
+  if ((millis() - ultima_vez_actualizo_pantalla) > 16) {
+    mostrarPantalla("encendido", "....");
+    ultima_vez_actualizo_pantalla = millis();
+  }
   if (digitalRead(INICIO) == HIGH) {
     numero_prueba = 0;
     for (auto& configuracion : CONF_PRUEBAS_RV) {
       realizarPrueba(configuracion);
       numero_prueba++;
-      delay(1000);
     }
 
     enviar_datos_por_data_streamer();
