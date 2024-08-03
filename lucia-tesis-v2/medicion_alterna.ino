@@ -29,8 +29,5 @@ bool loop_medicion_alterna(int (*obtener_valor)()) {
 
 float obtener_valor_rms() {
   readRms.publish();
-  // Serial.print(readRms.rmsVal, 2);
-  // Serial.print(", ");
-  // Serial.println(readRms.dcBias);
   return readRms.rmsVal;
 }
