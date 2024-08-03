@@ -36,12 +36,13 @@ void hacerPrueba() {
   v2 = obtener_valor_rms();
   pruebas[numero_prueba][prueba_interna] = v1;
   prueba_interna++;
-  Debug("Test: " + String(prueba_interna) + ", V1:" + String(v1) + ", V2: " + String(v2));
+  
+  Log("Test: " + String(prueba_interna) + ", V1:" + String(v1) + ", V2: " + String(v2));
 }
 
 void realizarPrueba(int configuracion[2]) {
   prueba_interna = 0;
-  Debug("Inicio configarion " + String(nombre_pruebas[numero_prueba]));
+  Log("Inicio configarion " + String(nombre_pruebas[numero_prueba]));
 
   setConfiguracionPrueba(configuracion);
 

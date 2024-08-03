@@ -3,7 +3,7 @@
 #include "datos.h"
 #include "TrueRMS.h"
 
-#define DEBUG
+#define LOG
 
 const int rs = 6, en = 7, d4 = 8, d5 = 9, d6 = 10, d7 = 11;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
@@ -19,8 +19,9 @@ float pruebas[4][8];
 void setup() {
   // Configurar pines de entrada y salida
   Serial.begin(9600);
+#ifdef LOG
   Serial1.begin(9600);
-
+#endif
   lcd.begin(16, 2);
   pinMode(INICIO, INPUT);
   //RELES
@@ -60,8 +61,8 @@ void loop() {
   }
 }
 
-void Debug(String mensaje) {
-#ifdef DEBUG
+void Log(String mensaje) {
+#ifdef LOG
   Serial1.println(mensaje);
 #endif
 }
