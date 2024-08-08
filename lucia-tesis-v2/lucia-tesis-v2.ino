@@ -53,10 +53,13 @@ int tiempo_actualizacion_pantalla = 100;
 void loop() {
   if ((millis() - ultima_vez_actualizo_pantalla) > 16) {
     mostrarPantalla("encendido", "....");
+
     ultima_vez_actualizo_pantalla = millis();
   }
   if (digitalRead(INICIO) == HIGH) {
     numero_prueba = 0;
+    mostrarPantalla("INICIO ", "PRUEBAS");
+    delay(200);
     for (auto& configuracion : CONF_PRUEBAS_RV) {
       realizarPrueba(configuracion);
       numero_prueba++;
