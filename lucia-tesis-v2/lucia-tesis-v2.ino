@@ -87,7 +87,7 @@ void enviar_datos_por_data_streamer() {
     Serial.print(", ");
     for (int j = 0; j < 6; j++) {
       Serial.print(pruebas[i][j]);
-      Serial.print(", ");
+      Serial.print(",");
     }
     Serial.println();
   }
