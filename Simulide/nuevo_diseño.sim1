@@ -1,10 +1,10 @@
 <circuit version="1.1.0-SR0" rev="2278" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
 <item itemtype="Subcircuit" CircId="Mega-176" mainComp="false" Show_id="true" Show_Val="false" Pos="584,324" rotation="0" hflip="1" vflip="1" label="Mega-176" idLabPos="-6,-10" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
-<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="D:/Documents/DOCUMENTOS/UNIVERSIDAD/SEMESTRE X/MATERIAL DE PROGRAMACIÓN/Pasantia_2.0/Pasantia/lucia-tesis-v2/build/arduino.avr.mega/lucia-tesis-v2.ino.hex" Auto_Load="true" saveEepr="true" eeprom="0,6,32,65,250,27,0,65,0,0,72,67,0,0,0,0,0,0,0,0,0,0,0,0," SerialMon="-1" />
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="../Grafica_M/Grafica_M/build/arduino.avr.mega/Grafica_M.ino.hex" Auto_Load="true" saveEepr="true" eeprom="0,6,32,65,250,27,0,65,0,0,72,67,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0," SerialMon="-1" />
 </item>
 
-<item itemtype="Tunnel" CircId="Tunnel-182" mainComp="false" Show_id="false" Show_Val="false" Pos="772,492" rotation="180" hflip="1" vflip="-1" label="Tunnel-182" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="V1" IsBus="false" />
+<item itemtype="Tunnel" CircId="Tunnel-182" mainComp="false" Show_id="false" Show_Val="false" Pos="756,484" rotation="180" hflip="1" vflip="-1" label="Tunnel-182" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="V1" IsBus="false" />
 
 <item itemtype="Ellipse" CircId="Ellipse-213" mainComp="false" Show_id="false" Show_Val="false" Pos="588,556" rotation="0" hflip="1" vflip="1" label="Ellipse-213" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" H_size="5 _px" V_size="3 _px" Border="2 _px" Z_Value="1" Color="#a0a0a4" Opacity="1" />
 
@@ -46,13 +46,11 @@
 
 <item itemtype="Tunnel" CircId="Tunnel-701" mainComp="false" Show_id="false" Show_Val="false" Pos="576,492" rotation="360" hflip="1" vflip="-1" label="Tunnel-701" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="rs" IsBus="false" />
 
-<item itemtype="Tunnel" CircId="Tunnel-1709" mainComp="false" Show_id="false" Show_Val="false" Pos="772,480" rotation="180" hflip="1" vflip="-1" label="Tunnel-1709" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="V2" IsBus="false" />
+<item itemtype="Tunnel" CircId="Tunnel-1709" mainComp="false" Show_id="false" Show_Val="false" Pos="756,476" rotation="180" hflip="1" vflip="-1" label="Tunnel-1709" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="V2" IsBus="false" />
 
 <item itemtype="Voltage Source" CircId="Voltage Source-1746" mainComp="false" ShowProp="MaxValue" Show_id="false" Show_Val="true" Pos="172,536" rotation="0" hflip="1" vflip="1" label="Voltage Source-1746" idLabPos="-32,-48" labelrot="0" valLabPos="-8,30" valLabRot="0" Running="true" Value_Volt="5 V" MaxValue="5 V" MinValue="0 V" />
 
-<item itemtype="Probe" CircId="Probe-1748" mainComp="false" Show_id="false" Show_Val="true" Pos="356,452" rotation="-45" hflip="1" vflip="1" label="Probe-1748" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
-
-<item itemtype="WaveGen" CircId="WaveGen-1802" mainComp="false" Show_id="false" Show_Val="false" Pos="836,544" rotation="0" hflip="1" vflip="1" label="WaveGen-1802" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Wave_Type="Sine" Freq="60 Hz" Phase="0 _º" Steps="100 _Steps" Duty="50 _%" Always_On="false" Bipolar="false" Floating="false" Semi_Ampli="1.2 V" Mid_Volt="2.5 V" />
+<item itemtype="WaveGen" CircId="WaveGen-1802" mainComp="false" Show_id="false" Show_Val="false" Pos="836,544" rotation="0" hflip="1" vflip="1" label="WaveGen-1802" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Wave_Type="Sine" Freq="60 Hz" Phase="0 _º" Steps="100 _Steps" Duty="50 _%" Always_On="false" Bipolar="false" Floating="false" Semi_Ampli="2.5 V" Mid_Volt="2.5 V" />
 
 <item itemtype="Hd44780" CircId="Hd44780-479" mainComp="false" Show_id="true" Show_Val="false" Pos="224,404" rotation="0" hflip="1" vflip="1" label="Hd44780-479" idLabPos="70,-82" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="2" Cols="16" />
 
@@ -70,14 +68,6 @@
 
 <item itemtype="Push" CircId="Push-226" mainComp="false" Show_id="false" Show_Val="false" Pos="272,528" rotation="0" hflip="1" vflip="1" label="Push-226" idLabPos="-12,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
 
-<item itemtype="Tunnel" CircId="Tunnel-1847" mainComp="false" Show_id="false" Show_Val="false" Pos="576,460" rotation="360" hflip="1" vflip="-1" label="Tunnel-1847" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R1" IsBus="false" />
-
-<item itemtype="Tunnel" CircId="Tunnel-1848" mainComp="false" Show_id="false" Show_Val="false" Pos="576,468" rotation="360" hflip="1" vflip="-1" label="Tunnel-1848" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R2" IsBus="false" />
-
-<item itemtype="Tunnel" CircId="Tunnel-1849" mainComp="false" Show_id="false" Show_Val="false" Pos="576,476" rotation="360" hflip="1" vflip="-1" label="Tunnel-1849" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R3" IsBus="false" />
-
-<item itemtype="Tunnel" CircId="Tunnel-1850" mainComp="false" Show_id="false" Show_Val="false" Pos="576,484" rotation="360" hflip="1" vflip="-1" label="Tunnel-1850" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R4" IsBus="false" />
-
 <item itemtype="Tunnel" CircId="Tunnel-1851" mainComp="false" Show_id="false" Show_Val="false" Pos="468,496" rotation="360" hflip="1" vflip="-1" label="Tunnel-1851" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R3" IsBus="false" />
 
 <item itemtype="Tunnel" CircId="Tunnel-1852" mainComp="false" Show_id="false" Show_Val="false" Pos="468,480" rotation="360" hflip="1" vflip="-1" label="Tunnel-1852" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R1" IsBus="false" />
@@ -86,15 +76,19 @@
 
 <item itemtype="Tunnel" CircId="Tunnel-1854" mainComp="false" Show_id="false" Show_Val="false" Pos="468,488" rotation="360" hflip="1" vflip="-1" label="Tunnel-1854" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R2" IsBus="false" />
 
-<item itemtype="LedBar" CircId="LedBar-1855" mainComp="false" Show_id="false" Show_Val="false" Pos="492,504" rotation="0" hflip="1" vflip="1" label="LedBar-1855" idLabPos="-16,-44" labelrot="0" valLabPos="-16,-56" valLabRot="0" Color="Yellow" Size="4 _Leds" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+<item itemtype="LedBar" CircId="LedBar-1855" mainComp="false" Show_id="false" Show_Val="false" Pos="492,504" rotation="0" hflip="1" vflip="1" label="LedBar-1855" idLabPos="-16,-44" labelrot="0" valLabPos="-16,-56" valLabRot="0" Color="Red" Size="4 _Leds" Grounded="false" Threshold="2.8 V" MaxCurrent="30 mA" Resistance="6.6 Ω" />
 
 <item itemtype="Ground" CircId="Ground-1859" mainComp="false" Show_id="false" Show_Val="false" Pos="508,532" rotation="0" hflip="1" vflip="1" label="Ground-1859" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
+<item itemtype="Tunnel" CircId="Tunnel-1989" mainComp="false" Show_id="false" Show_Val="false" Pos="632,316" rotation="630" hflip="1" vflip="-1" label="Tunnel-1989" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R4" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-1990" mainComp="false" Show_id="false" Show_Val="false" Pos="656,316" rotation="630" hflip="1" vflip="-1" label="Tunnel-1990" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R1" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-1992" mainComp="false" Show_id="false" Show_Val="false" Pos="648,316" rotation="630" hflip="1" vflip="-1" label="Tunnel-1992" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R2" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-2046" mainComp="false" Show_id="false" Show_Val="false" Pos="640,316" rotation="630" hflip="1" vflip="-1" label="Tunnel-2046" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="R3" IsBus="false" />
+
 <item itemtype="Node" CircId="Node-270" mainComp="false" Pos="328,488" />
-
-<item itemtype="Node" CircId="Node-1749" mainComp="false" Pos="340,488" />
-
-<item itemtype="Node" CircId="Node-1825" mainComp="false" Pos="760,492" />
 
 <item itemtype="Node" CircId="Node-1789" mainComp="false" Pos="400,572" />
 
@@ -114,120 +108,118 @@
 
 <item itemtype="Node" CircId="Node-1860" mainComp="false" Pos="508,504" />
 
-<item itemtype="Node" CircId="Node-1861" mainComp="false" Pos="760,484" />
+<item itemtype="Node" CircId="Node-1924" mainComp="false" Pos="736,476" />
 
-<item itemtype="Node" CircId="Node-1862" mainComp="false" Pos="752,492" />
+<item itemtype="Node" CircId="Node-1927" mainComp="false" Pos="736,484" />
 
-<item itemtype="Connector" uid="connector-1806" startpinid="Tunnel-263-pin" endpinid="Node-270-0" pointList="328,472,328,488" />
+<item itemtype="Node" CircId="Node-1929" mainComp="false" Pos="752,484" />
 
-<item itemtype="Connector" uid="connector-1810" startpinid="Push-229-switch0pinN" endpinid="Node-270-1" pointList="288,488,328,488" />
+<item itemtype="Connector" uid="connector-1993" startpinid="Tunnel-263-pin" endpinid="Node-270-0" pointList="328,472,328,488" />
 
-<item itemtype="Connector" uid="connector-1858" startpinid="Probe-1748-inpin" endpinid="Node-1749-1" pointList="340,468,340,488" />
+<item itemtype="Connector" uid="connector-1994" startpinid="Push-229-switch0pinN" endpinid="Node-270-1" pointList="288,488,328,488" />
 
-<item itemtype="Connector" uid="connector-1859" startpinid="Node-270-2" endpinid="Node-1749-0" pointList="328,488,340,488" />
+<item itemtype="Connector" uid="connector-1995" startpinid="Tunnel-473-pin" endpinid="Hd44780-479-dataPin4" pointList="296,420,296,412" />
 
-<item itemtype="Connector" uid="connector-1860" startpinid="Node-1749-2" endpinid="Resistor-251-lPin" pointList="340,488,352,488" />
+<item itemtype="Connector" uid="connector-1996" startpinid="Hd44780-479-PinRS" endpinid="Tunnel-474-pin" pointList="240,412,240,420" />
 
-<item itemtype="Connector" uid="connector-1833" startpinid="Tunnel-473-pin" endpinid="Hd44780-479-dataPin4" pointList="296,420,296,412" />
+<item itemtype="Connector" uid="connector-1997" startpinid="Tunnel-478-pin" endpinid="Hd44780-479-dataPin6" pointList="312,420,312,412" />
 
-<item itemtype="Connector" uid="connector-1832" startpinid="Hd44780-479-PinRS" endpinid="Tunnel-474-pin" pointList="240,412,240,420" />
+<item itemtype="Connector" uid="connector-1998" startpinid="Tunnel-476-pin" endpinid="Hd44780-479-PinEn" pointList="256,420,256,412" />
 
-<item itemtype="Connector" uid="connector-1831" startpinid="Tunnel-478-pin" endpinid="Hd44780-479-dataPin6" pointList="312,420,312,412" />
+<item itemtype="Connector" uid="connector-1999" startpinid="Tunnel-477-pin" endpinid="Hd44780-479-dataPin7" pointList="320,420,320,412" />
 
-<item itemtype="Connector" uid="connector-1830" startpinid="Tunnel-476-pin" endpinid="Hd44780-479-PinEn" pointList="256,420,256,412" />
+<item itemtype="Connector" uid="connector-2000" startpinid="Tunnel-475-pin" endpinid="Hd44780-479-dataPin5" pointList="304,420,304,412" />
 
-<item itemtype="Connector" uid="connector-1829" startpinid="Tunnel-477-pin" endpinid="Hd44780-479-dataPin7" pointList="320,420,320,412" />
+<item itemtype="Connector" uid="connector-2001" startpinid="Tunnel-504-pin" endpinid="Mega-176-8" pointList="576,516,592,516" />
 
-<item itemtype="Connector" uid="connector-1828" startpinid="Tunnel-475-pin" endpinid="Hd44780-479-dataPin5" pointList="304,420,304,412" />
+<item itemtype="Connector" uid="connector-2002" startpinid="Tunnel-505-pin" endpinid="Mega-176-9" pointList="576,524,592,524" />
 
-<item itemtype="Connector" uid="Connector-1956" startpinid="Tunnel-182-pin" endpinid="Node-1825-0" pointList="772,492,760,492" />
+<item itemtype="Connector" uid="connector-2003" startpinid="Tunnel-501-pin" endpinid="Mega-176-10" pointList="576,532,592,532" />
 
-<item itemtype="Connector" uid="Connector-1987" startpinid="Tunnel-504-pin" endpinid="Mega-176-8" pointList="576,516,592,516" />
+<item itemtype="Connector" uid="connector-2004" startpinid="Tunnel-502-pin" endpinid="Mega-176-11" pointList="576,540,592,540" />
 
-<item itemtype="Connector" uid="Connector-1988" startpinid="Tunnel-505-pin" endpinid="Mega-176-9" pointList="576,524,592,524" />
+<item itemtype="Connector" uid="connector-2005" startpinid="Node-1789-2" endpinid="Node-258-2" pointList="400,572,400,528" />
 
-<item itemtype="Connector" uid="Connector-1989" startpinid="Tunnel-501-pin" endpinid="Mega-176-10" pointList="576,532,592,532" />
+<item itemtype="Connector" uid="connector-2006" startpinid="Resistor-234-rPin" endpinid="Node-1789-0" pointList="388,572,400,572" />
 
-<item itemtype="Connector" uid="Connector-1990" startpinid="Tunnel-502-pin" endpinid="Mega-176-11" pointList="576,540,592,540" />
+<item itemtype="Connector" uid="connector-2007" startpinid="Resistor-234-lPin" endpinid="Node-273-0" pointList="356,572,328,572" />
 
-<item itemtype="Connector" uid="connector-1870" startpinid="Node-1789-2" endpinid="Node-258-2" pointList="400,572,400,528" />
+<item itemtype="Connector" uid="connector-2008" startpinid="Node-280-0" endpinid="Push-229-pinP0" pointList="244,528,244,484,256,484,256,488" />
 
-<item itemtype="Connector" uid="connector-1869" startpinid="Resistor-234-rPin" endpinid="Node-1789-0" pointList="388,572,400,572" />
+<item itemtype="Connector" uid="connector-2009" startpinid="Node-280-1" endpinid="Node-1747-0" pointList="244,528,244,548" />
 
-<item itemtype="Connector" uid="connector-1862" startpinid="Resistor-234-lPin" endpinid="Node-273-0" pointList="356,572,328,572" />
+<item itemtype="Connector" uid="connector-2010" startpinid="Voltage Source-1746-outPin" endpinid="Node-1747-1" pointList="200,552,244,552,244,548" />
 
-<item itemtype="Connector" uid="connector-1857" startpinid="Node-280-0" endpinid="Push-229-pinP0" pointList="244,528,244,484,256,484,256,488" />
+<item itemtype="Connector" uid="connector-2011" startpinid="Node-280-2" endpinid="Push-226-pinP0" pointList="244,528,256,528" />
 
-<item itemtype="Connector" uid="connector-1856" startpinid="Node-280-1" endpinid="Node-1747-0" pointList="244,528,244,548" />
+<item itemtype="Connector" uid="connector-2012" startpinid="Node-273-2" endpinid="Push-228-switch0pinN" pointList="328,572,288,572,288,576" />
 
-<item itemtype="Connector" uid="connector-1855" startpinid="Voltage Source-1746-outPin" endpinid="Node-1747-1" pointList="200,552,244,552,244,548" />
+<item itemtype="Connector" uid="connector-2013" startpinid="Tunnel-261-pin" endpinid="Node-273-1" pointList="328,560,328,572" />
 
-<item itemtype="Connector" uid="connector-1813" startpinid="Node-280-2" endpinid="Push-226-pinP0" pointList="244,528,256,528" />
+<item itemtype="Connector" uid="connector-2014" startpinid="Node-267-2" endpinid="Resistor-247-lPin" pointList="332,528,352,528" />
 
-<item itemtype="Connector" uid="connector-1812" startpinid="Node-273-2" endpinid="Push-228-switch0pinN" pointList="328,572,288,572,288,576" />
+<item itemtype="Connector" uid="connector-2015" startpinid="Push-226-switch0pinN" endpinid="Node-267-1" pointList="288,528,332,528" />
 
-<item itemtype="Connector" uid="connector-1811" startpinid="Tunnel-261-pin" endpinid="Node-273-1" pointList="328,560,328,572" />
+<item itemtype="Connector" uid="connector-2016" startpinid="Tunnel-262-pin" endpinid="Node-267-0" pointList="328,520,332,520,332,528" />
 
-<item itemtype="Connector" uid="connector-1809" startpinid="Node-267-2" endpinid="Resistor-247-lPin" pointList="332,528,352,528" />
+<item itemtype="Connector" uid="connector-2017" startpinid="Resistor-251-rPin" endpinid="Node-258-1" pointList="384,488,400,488,400,528" />
 
-<item itemtype="Connector" uid="connector-1808" startpinid="Push-226-switch0pinN" endpinid="Node-267-1" pointList="288,528,332,528" />
+<item itemtype="Connector" uid="connector-2018" startpinid="Resistor-247-rPin" endpinid="Node-258-0" pointList="384,528,400,528" />
 
-<item itemtype="Connector" uid="connector-1807" startpinid="Tunnel-262-pin" endpinid="Node-267-0" pointList="328,520,332,520,332,528" />
+<item itemtype="Connector" uid="connector-2019" startpinid="Node-1747-2" endpinid="Push-228-pinP0" pointList="244,548,244,576,256,576" />
 
-<item itemtype="Connector" uid="connector-1805" startpinid="Resistor-251-rPin" endpinid="Node-258-1" pointList="384,488,400,488,400,528" />
+<item itemtype="Connector" uid="connector-2020" startpinid="Node-1789-1" endpinid="Ground-1787-Gnd" pointList="400,572,400,620" />
 
-<item itemtype="Connector" uid="connector-1804" startpinid="Resistor-247-rPin" endpinid="Node-258-0" pointList="384,528,400,528" />
+<item itemtype="Connector" uid="connector-2021" startpinid="Tunnel-503-pin" endpinid="Mega-176-7" pointList="576,500,592,500" />
 
-<item itemtype="Connector" uid="Connector-2037" startpinid="Node-1747-2" endpinid="Push-228-pinP0" pointList="244,548,244,576,256,576" />
+<item itemtype="Connector" uid="connector-2022" startpinid="Tunnel-701-pin" endpinid="Mega-176-6" pointList="576,492,592,492" />
 
-<item itemtype="Connector" uid="Connector-2038" startpinid="Node-1789-1" endpinid="Ground-1787-Gnd" pointList="400,572,400,620" />
+<item itemtype="Connector" uid="connector-2023" startpinid="Tunnel-312-pin" endpinid="Mega-176-12" pointList="576,548,592,548" />
 
-<item itemtype="Connector" uid="Connector-2043" startpinid="Tunnel-503-pin" endpinid="Mega-176-7" pointList="576,500,592,500" />
+<item itemtype="Connector" uid="connector-2024" startpinid="Tunnel-1853-pin" endpinid="LedBar-1855-led3-pinP" pointList="468,504,476,504" />
 
-<item itemtype="Connector" uid="Connector-2044" startpinid="Tunnel-701-pin" endpinid="Mega-176-6" pointList="576,492,592,492" />
+<item itemtype="Connector" uid="connector-2025" startpinid="Tunnel-1851-pin" endpinid="LedBar-1855-led2-pinP" pointList="468,496,476,496" />
 
-<item itemtype="Connector" uid="Connector-2045" startpinid="Tunnel-312-pin" endpinid="Mega-176-12" pointList="576,548,592,548" />
+<item itemtype="Connector" uid="connector-2026" startpinid="LedBar-1855-led1-pinP" endpinid="Tunnel-1854-pin" pointList="476,488,468,488" />
 
-<item itemtype="Connector" uid="Connector-2046" startpinid="Tunnel-1850-pin" endpinid="Mega-176-5" pointList="576,484,592,484" />
+<item itemtype="Connector" uid="connector-2027" startpinid="LedBar-1855-led1-pinN" endpinid="Node-1856-0" pointList="508,488,508,480" />
 
-<item itemtype="Connector" uid="Connector-2047" startpinid="Tunnel-1849-pin" endpinid="Mega-176-4" pointList="576,476,592,476" />
+<item itemtype="Connector" uid="connector-2028" startpinid="Node-1856-2" endpinid="LedBar-1855-led0-pinN" pointList="508,480,508,480" />
 
-<item itemtype="Connector" uid="Connector-2048" startpinid="Tunnel-1848-pin" endpinid="Mega-176-3" pointList="576,468,592,468" />
+<item itemtype="Connector" uid="connector-2029" startpinid="LedBar-1855-led2-pinN" endpinid="Node-1857-0" pointList="508,496,508,496" />
 
-<item itemtype="Connector" uid="Connector-2049" startpinid="Tunnel-1847-pin" endpinid="Mega-176-2" pointList="576,460,592,460" />
+<item itemtype="Connector" uid="connector-2030" startpinid="Node-1857-2" endpinid="Node-1856-1" pointList="508,496,508,480" />
 
-<item itemtype="Connector" uid="Connector-2051" startpinid="Node-1825-2" endpinid="WaveGen-1802-outnod" pointList="760,492,760,504,852,504,852,544" />
+<item itemtype="Connector" uid="connector-2031" startpinid="Ground-1859-Gnd" endpinid="Node-1860-1" pointList="508,516,508,504" />
 
-<item itemtype="Connector" uid="Connector-2057" startpinid="Tunnel-1853-pin" endpinid="LedBar-1855-led3-pinP" pointList="468,504,476,504" />
+<item itemtype="Connector" uid="connector-2032" startpinid="LedBar-1855-led3-pinN" endpinid="Node-1860-0" pointList="508,504,508,504" />
 
-<item itemtype="Connector" uid="Connector-2058" startpinid="Tunnel-1851-pin" endpinid="LedBar-1855-led2-pinP" pointList="468,496,476,496" />
+<item itemtype="Connector" uid="connector-2033" startpinid="Node-1860-2" endpinid="Node-1857-1" pointList="508,504,508,496" />
 
-<item itemtype="Connector" uid="Connector-2059" startpinid="LedBar-1855-led1-pinP" endpinid="Tunnel-1854-pin" pointList="476,488,468,488" />
+<item itemtype="Connector" uid="connector-2034" startpinid="Mega-176-A1" endpinid="Node-1927-0" pointList="736,484,736,484" />
 
-<item itemtype="Connector" uid="Connector-2060" startpinid="Tunnel-1852-pin" endpinid="LedBar-1855-led0-pinP" pointList="468,480,476,480" />
+<item itemtype="Connector" uid="connector-2035" startpinid="Tunnel-1709-pin" endpinid="Node-1924-0" pointList="756,476,736,476" />
 
-<item itemtype="Connector" uid="Connector-2063" startpinid="LedBar-1855-led1-pinN" endpinid="Node-1856-0" pointList="508,488,508,480" />
+<item itemtype="Connector" uid="connector-2036" startpinid="Node-1924-2" endpinid="Mega-176-A2" pointList="736,476,736,476" />
 
-<item itemtype="Connector" uid="Connector-2064" startpinid="Node-1856-2" endpinid="LedBar-1855-led0-pinN" pointList="508,480,508,480" />
+<item itemtype="Connector" uid="connector-2037" startpinid="Node-1924-1" endpinid="Node-1927-1" pointList="736,476,736,484" />
 
-<item itemtype="Connector" uid="Connector-2066" startpinid="LedBar-1855-led2-pinN" endpinid="Node-1857-0" pointList="508,496,508,496" />
+<item itemtype="Connector" uid="connector-2038" startpinid="Node-1927-2" endpinid="Node-1929-0" pointList="736,484,752,484" />
 
-<item itemtype="Connector" uid="Connector-2067" startpinid="Node-1857-2" endpinid="Node-1856-1" pointList="508,496,508,480" />
+<item itemtype="Connector" uid="connector-2039" startpinid="Node-1929-2" endpinid="Tunnel-182-pin" pointList="752,484,756,484" />
 
-<item itemtype="Connector" uid="Connector-2072" startpinid="Ground-1859-Gnd" endpinid="Node-1860-1" pointList="508,516,508,504" />
+<item itemtype="Connector" uid="connector-2040" startpinid="Node-1929-1" endpinid="WaveGen-1802-outnod" pointList="752,484,752,524,852,524,852,544" />
 
-<item itemtype="Connector" uid="Connector-2073" startpinid="LedBar-1855-led3-pinN" endpinid="Node-1860-0" pointList="508,504,508,504" />
+<item itemtype="Connector" uid="connector-2041" startpinid="Node-270-2" endpinid="Resistor-251-lPin" pointList="328,488,352,488" />
 
-<item itemtype="Connector" uid="Connector-2074" startpinid="Node-1860-2" endpinid="Node-1857-1" pointList="508,504,508,496" />
+<item itemtype="Connector" uid="connector-2042" startpinid="Mega-176-37" endpinid="Tunnel-1990-pin" pointList="656,340,656,316" />
 
-<item itemtype="Connector" uid="Connector-2075" startpinid="Node-1861-1" endpinid="Node-1862-1" pointList="760,484,760,492,752,492" />
+<item itemtype="Connector" uid="connector-2043" startpinid="Tunnel-1989-pin" endpinid="Mega-176-31" pointList="632,316,632,340" />
 
-<item itemtype="Connector" uid="Connector-2076" startpinid="Mega-176-A1" endpinid="Node-1861-0" pointList="736,484,760,484" />
+<item itemtype="Connector" uid="connector-2044" startpinid="Tunnel-1852-pin" endpinid="LedBar-1855-led0-pinP" pointList="468,480,476,480" />
 
-<item itemtype="Connector" uid="Connector-2077" startpinid="Node-1861-2" endpinid="Tunnel-1709-pin" pointList="760,484,772,484,772,480" />
+<item itemtype="Connector" uid="connector-2045" startpinid="Mega-176-35" endpinid="Tunnel-1992-pin" pointList="648,340,648,316" />
 
-<item itemtype="Connector" uid="Connector-2078" startpinid="Node-1825-1" endpinid="Node-1862-0" pointList="760,492,752,492" />
-
-<item itemtype="Connector" uid="Connector-2079" startpinid="Node-1862-2" endpinid="Mega-176-A0" pointList="752,492,736,492" />
+<item itemtype="Connector" uid="Connector-2047" startpinid="Mega-176-33" endpinid="Tunnel-2046-pin" pointList="640,340,640,316" />
 
 </circuit>
