@@ -23,14 +23,14 @@ void hacerPrueba() {
   // Mientras 2 ciclos de red
   // Proceso A
   //v1
-  configurar_medicion_alterna(707, 10);  //referencia de corriente
+  configurar_medicion_alterna(566, 10);  //referencia de corriente
   while (loop_medicion_alterna(&get_digital_V1))
     ;
   v1 = obtener_valor_rms();
   pruebas[numero_prueba][prueba_interna] = v1;
-  // prueba_interna++;
+  prueba_interna++;
   // v2
-  configurar_medicion_alterna(566, 10);  //referencia de voltaje
+  configurar_medicion_alterna(707, 10);  //referencia de voltaje
   while (loop_medicion_alterna(&get_digital_V2))
     ;
   v2 = obtener_valor_rms();
@@ -38,7 +38,7 @@ void hacerPrueba() {
   prueba_interna++;
   lcd.clear();
   Log("Test: " + String(prueba_interna) + ", V1:" + String(v1) + ", V2: " + String(v2));
-  lcd.print("Test:" + String(prueba_interna));
+  lcd.print("Test:" + String(prueba_interna) +" ");
   lcd.setCursor(7, 0);
   lcd.print("V1:" + String(v1));
   lcd.setCursor(7, 1);
@@ -49,9 +49,9 @@ void hacerPrueba() {
 void realizarPrueba(int configuracion[2]) {
   prueba_interna = 0;
   Log("Inicio configuracion " + String(nombre_pruebas[numero_prueba]));
-  delay(100);
+  delay(200);
   lcd.clear();
-  lcd.println("Configuracion" + String(nombre_pruebas[numero_prueba]));
+  lcd.println("Secuencia " + String(nombre_pruebas[numero_prueba])+ "     ");
   setConfiguracionPrueba(configuracion);
   auto tiempo_inicio_prueba = micros();
   for (int i = 0; i < 3; i++) {

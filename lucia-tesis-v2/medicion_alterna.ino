@@ -1,6 +1,6 @@
 #include "TrueRMS.h"
 
-#define RMS_WINDOW 50  // rms para 50 muestras, 3 periodos en 60Hz
+#define RMS_WINDOW 50  // rms para 50 muestras, 3 periodos en 60Hz (revisar ensalida)
 #define PERIODO 1000   // 1 ms Periodo muestra
 
 unsigned long nextLoop;
@@ -23,11 +23,12 @@ bool loop_medicion_alterna(int (*obtener_valor)()) {
   while (nextLoop > micros())
     ;
   nextLoop += PERIODO;
-  count ++;
+  count++;
   return count >= 1000 ? false : true;
 }
 
 float obtener_valor_rms() {
+
   readRms.publish();
   return readRms.rmsVal;
 }
