@@ -13,8 +13,8 @@ int crucesPorCero = 0;
 bool cruces[RMS_WINDOW];  // Vector para marcar los cruces por cero
 
 void configurar_medicion_alterna(float rango_voltaje, unsigned char bits) {
-  readRms.begin(rango_voltaje, RMS_WINDOW, bits, BLR_ON, CNT_SCAN);
-  readRms.start();
+  // readRms.begin(rango_voltaje, RMS_WINDOW, bits, BLR_ON, CNT_SCAN);
+  // readRms.start();
   count = 0;
   nextLoop = micros() + PERIODO;
   cruzoPorCero = false;
@@ -34,10 +34,10 @@ void configurar_medicion_alterna_V1(float rango_voltaje, unsigned char bits) {
 bool detectar_cruce_por_cero() {
   static int valorAnterior = 0;
   int valorActual = analogRead(A1);
-  delayMicroseconds(200);
-  bool cruce = (valorAnterior < 512 && valorActual >= 512) || (valorAnterior > 512 && valorActual <= 512);
+  // delayMicroseconds(200);
+  bool ocurrio_cruce = (valorAnterior < 512 && valorActual >= 512) || (valorAnterior > 512 && valorActual <= 512);
   valorAnterior = valorActual;
-  return cruce;
+  return ocurrio_cruce;
 }
 
 bool loop_medicion_alterna() {
@@ -49,19 +49,19 @@ bool loop_medicion_alterna() {
   }
 
   int medicion = analogRead(A1);
-  delayMicroseconds(300);
-  readRms.update(medicion);
+  // delayMicroseconds(300);
+  // readRms.update(medicion);
   samples[count] = medicion;
   cruces[count] = detectar_cruce_por_cero();  // Marcar si hay cruce por cero
 
   while (nextLoop > micros())
     ;
-  nextLoop += PERIODO;
+  nextLoop = micros() + PERIODO;
   count++;
   return count >= RMS_WINDOW ? false : true;
 }
 
-void obtener_valores() {
+void enviando_valores() {
   for (int i = 0; i < RMS_WINDOW; i++) {
     Serial.print(samples[i]);
     if (cruces[i]) {
@@ -77,7 +77,7 @@ bool loop_medicion_alterna_V1(int (*obtener_valor)()) {
 
   while (nextLoop > micros())
     ;
-  nextLoop += PERIODO;
+  nextLoop += micros() + PERIODO;
   count++;
   return count >= 1000 ? false : true;
 }
@@ -101,14 +101,14 @@ void setup() {
 void loop() {
   if (digitalRead(INICIO) == HIGH) {
     if (!loop_medicion_alterna()) {
-      obtener_valores();
-      float V1;
-      configurar_medicion_alterna_V1(700, 10);
-      while (loop_medicion_alterna_V1(&get_digital_V1))
-        ;
-      V1 = obtener_valor_rms();
-      Serial.println("V2: " + String(V1));
-      delay(5000);
+      enviando_valores();
+      // float V1;
+      // configurar_medicion_alterna_V1(700, 10);
+      // while (loop_medicion_alterna_V1(&get_digital_V1))
+      //   ;
+      // V1 = obtener_valor_rms();
+      // Serial.println("V2: " + String(V1));
+      // delay(5000);
 
 
       configurar_medicion_alterna(5.0, 10);  // Configurar nuevamente
