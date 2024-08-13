@@ -1,9 +1,9 @@
 #include <LiquidCrystal.h>
 #include <EEPROM.h>
 #include "datos.h"
-#include "TrueRMS.h"
+// #include "TrueRMS.h"
 
-#define LOG
+// #define LOG
 
 const int rs = 6, en = 7, d4 = 8, d5 = 9, d6 = 10, d7 = 11;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
@@ -15,6 +15,14 @@ const char nombre_pruebas[4] = { 'A', 'B', 'C', 'D' };
 
 int numero_prueba = 0;
 float pruebas[4][6];
+
+int get_digital_V1() {
+  return analogRead(A1);
+}
+
+int get_digital_V2() {
+  return analogRead(A2);
+}
 
 void setup() {
   // Configurar pines de entrada y salida
@@ -31,13 +39,6 @@ void setup() {
   pinMode(37, OUTPUT);
 }
 
-int get_digital_V1() {
-  return analogRead(A1);
-}
-
-int get_digital_V2() {
-  return analogRead(A2);
-}
 void mostrarPantalla(String linea1, String linea2) {
   lcd.clear();
   lcd.setCursor(0, 0);

@@ -1,34 +1,34 @@
-#include "TrueRMS.h"
+// #include "TrueRMS.h"
 
-#define RMS_WINDOW 50  // rms para 50 muestras, 3 periodos en 60Hz (revisar ensalida)
-#define PERIODO 1000   // 1 ms Periodo muestra
+// #define RMS_WINDOW 50  // rms para 50 muestras, 3 periodos en 60Hz (revisar ensalida)
+// #define PERIODO 1000   // 1 ms Periodo muestra
 
-unsigned long nextLoop;
-Rms readRms;
-int count;
+// unsigned long nextLoop;
+// Rms readRms;
+// int count;
 
-void configurar_medicion_alterna(float rango_voltaje, unsigned char bits) {
-  readRms.begin(rango_voltaje, RMS_WINDOW, bits, BLR_ON, CNT_SCAN);
+// void configurar_medicion_alterna(float rango_voltaje, unsigned char bits) {
+//   readRms.begin(rango_voltaje, RMS_WINDOW, bits, BLR_ON, CNT_SCAN);
 
-  readRms.start();
+//   readRms.start();
 
-  count = 0;
-  nextLoop = micros() + PERIODO;
-}
+//   count = 0;
+//   nextLoop = micros() + PERIODO;
+// }
 
-bool loop_medicion_alterna(int (*obtener_valor)()) {
-  int medicion = obtener_valor();
-  readRms.update(medicion);
+// bool loop_medicion_alterna(int (*obtener_valor)()) {
+//   int medicion = obtener_valor();
+//   readRms.update(medicion);
 
-  while (nextLoop > micros())
-    ;
-  nextLoop += PERIODO;
-  count++;
-  return count >= 1000 ? false : true;
-}
+//   while (nextLoop > micros())
+//     ;
+//   nextLoop += PERIODO;
+//   count++;
+//   return count >= 1000 ? false : true;
+// }
 
-float obtener_valor_rms() {
+// float obtener_valor_rms() {
 
-  readRms.publish();
-  return readRms.rmsVal;
-}
+//   readRms.publish();
+//   return readRms.rmsVal;
+// }
