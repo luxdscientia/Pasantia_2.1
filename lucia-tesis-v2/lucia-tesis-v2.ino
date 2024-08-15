@@ -4,7 +4,7 @@
 // #include "TrueRMS.h"
 
 #define LOG
-#define NUMERO_PRUEBAS 8
+#define NUMERO_PRUEBAS 18
 #define SAMPLE_SIZE 50
 
 const int rs = 6, en = 7, d4 = 8, d5 = 9, d6 = 10, d7 = 11;
@@ -13,7 +13,11 @@ const int INICIO = 12;
 const int RELES_SRV[2] = { 37, 35 };
 const int RELES_SW[2] = { 33, 31 };
 
-const String nombre_pruebas[NUMERO_PRUEBAS] = { "AV1", "AV2", "BV1", "BV2", "CV1", "CV2", "DV1", "DV2" };
+const String nombre_pruebas[NUMERO_PRUEBAS] = {
+  "A1V1", "A1V2", "B1V1", "B1V2", "C1V1", "C1V2",
+  "A2V1", "A2V2", "B2V1", "B2V2", "C2V1", "C2V2",
+  "A3V1", "A3V2", "B3V1", "B3V2", "C3V1", "C3V2"
+};
 
 int numero_prueba = 0;
 int prueba_interna = 0;
