@@ -29,13 +29,12 @@ void hacer_prueba(int (*get_v)()) {
 }
 
 void realizarPrueba(int configuracion[2]) {
-  prueba_interna = 0;
-  Log("Inicio configuracion " + String(nombre_pruebas[numero_prueba]));
   lcd.clear();
   lcd.println("Secuencia " + String(nombre_pruebas[numero_prueba]) + "     ");
   setConfiguracionPrueba(configuracion);
   auto tiempo_inicio_prueba = micros();
   for (int i = 0; i < 3; i++) {
+    Log("Inicio configuracion " + String(nombre_pruebas[numero_prueba][0]));
     configurarPrueba(RELES_SW, i);
     hacer_prueba(&get_digital_V1);
     hacer_prueba(&get_digital_V2);

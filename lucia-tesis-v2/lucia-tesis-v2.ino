@@ -66,7 +66,6 @@ void loop() {
     delay(200);
     for (auto& configuracion : CONF_PRUEBAS_RV) {
       realizarPrueba(configuracion);
-      numero_prueba++;
     }
     while (digitalRead(INICIO) == LOW) {
       if ((millis() - ultima_vez_actualizo_pantalla) > 16) {
