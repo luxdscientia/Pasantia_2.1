@@ -10,8 +10,6 @@ bool cruzoPorCero = false;
 int crucesPorCero = 0;
 bool cruces[RMS_WINDOW];  // Vector para marcar los cruces por cero
 
-
-
 void configurar_medicion_alterna(float rango_voltaje, unsigned char bits) {
   count = 0;
   nextLoop = micros() + PERIODO;
@@ -39,6 +37,8 @@ bool loop_medicion_alterna(int (*obtener_valor)()) {
   int medicion = obtener_valor();
 
   samples[count] = medicion;
+  pruebas[numero_prueba][prueba_interna] = medicion;
+  prueba_interna++;
   cruces[count] = detectar_cruce_por_cero(obtener_valor);  // Marcar si hay cruce por cero
 
   while (nextLoop > micros())

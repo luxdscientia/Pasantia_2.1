@@ -3,7 +3,9 @@
 #include "datos.h"
 // #include "TrueRMS.h"
 
-// #define LOG
+#define LOG
+#define NUMERO_PRUEBAS 8
+#define SAMPLE_SIZE 50
 
 const int rs = 6, en = 7, d4 = 8, d5 = 9, d6 = 10, d7 = 11;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
@@ -11,10 +13,11 @@ const int INICIO = 12;
 const int RELES_SRV[2] = { 37, 35 };
 const int RELES_SW[2] = { 33, 31 };
 
-const char nombre_pruebas[4] = { 'A', 'B', 'C', 'D' };
+const String nombre_pruebas[NUMERO_PRUEBAS] = { "AV1", "AV2", "BV1", "BV2", "CV1", "CV2", "DV1", "DV2" };
 
 int numero_prueba = 0;
-float pruebas[4][6];
+int prueba_interna = 0;
+int pruebas[NUMERO_PRUEBAS][SAMPLE_SIZE];
 
 int get_digital_V1() {
   return analogRead(A1);
@@ -89,10 +92,10 @@ void Log(String mensaje) {
  * https://www.microsoft.com/en-us/download/details.aspx?id=56976
  */
 void enviar_datos_por_data_streamer() {
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < NUMERO_PRUEBAS; i++) {
     Serial.print(nombre_pruebas[i]);
     Serial.print(", ");
-    for (int j = 0; j < 6; j++) {
+    for (int j = 0; j < SAMPLE_SIZE; j++) {
       Serial.print(pruebas[i][j]);
       Serial.print(",");
     }
