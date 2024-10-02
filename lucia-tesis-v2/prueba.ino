@@ -36,7 +36,6 @@ void hacer_prueba(int (*get_v)()) {
 
 void realizarPrueba(int configuracion[2]) {
   setConfiguracionPrueba(configuracion);
-  // auto tiempo_inicio_prueba = micros();
   for (int i = 0; i < 3; i++) {
 
     Log("Inicio configuracion " + nombre_pruebas[numero_prueba]);
@@ -45,13 +44,4 @@ void realizarPrueba(int configuracion[2]) {
     hacer_prueba(&get_digital_V2);
     delay(1000);
   }
-  // auto tiempo_finalizo_prueba = micros();
-  // auto tiempo_f_S= (tiempo_finalizo_prueba-tiempo_inicio_prueba)* 1e-6;
-  // Log("La prueba duro " + String(tiempo_finalizo_prueba - tiempo_inicio_prueba));
-
-  // lcd.clear();
-  // lcd.println("La prueba duro: ");
-  // lcd.setCursor(0, 1);
-  // lcd.println(String (tiempo_f_S) + " segundos");
-  // delay(2000);
 }
