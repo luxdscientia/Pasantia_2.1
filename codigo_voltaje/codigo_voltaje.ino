@@ -11,11 +11,11 @@ enum EstadoPrograma {
 };
 
 const int RED_RELES[12] = { 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53 };
-const int rs = 5, en = 6, d4 = 8, d5 = 9, d6 = 10, d7 = 11;
+const int rs = 6, en = 7, d4 = 8, d5 = 9, d6 = 10, d7 = 11;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-const int A_1 = 2;
+const int A_1 = 12;
 const int A_2 = 3;
-const int SIG = 4;
+const int SIG = 12;
 const int yk = 18;
 bool YKD;
 const int voltageAddress = 0;  //COnfig para guardar datos en la eeprom
