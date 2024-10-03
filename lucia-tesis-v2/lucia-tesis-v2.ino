@@ -15,14 +15,30 @@ const int SW1 = 33;
 const int SW2 = 39;
 const int SW3 = 35;
 const int SW4 = 37;
+const int LED_R = 50;
+const int LED_V = 52;
 const int RELES_SRV[2] = { SW3, SW4 };
 const int RELES_SW[2] = { SW1, SW2 };
 
 const String nombre_pruebas[NUMERO_PRUEBAS] = {
-  "A1:V1", "A1:V2", "B1:V1", "B1:V2", "C1:V1", "C1:V2",
-  "A2:V1", "A2:V2", "B2:V1", "B2:V2", "C2:V1", "C2:V2",
-  "A3:V1", "A3:V2", "B3:V1", "B3:V2", "C3:V1", "C3:V2",
-  // "A4:V1", "A4:V2", "B4:V1", "B4:V2", "C4:V1", "C4:V2"
+  "A1:V1_A",
+  "A1:V2",
+  "B1:V1_B",
+  "B1:V2",
+  "C1:V1_B",
+  "C1:V2",
+  "A2:V1_A",
+  "A2:V2",
+  "B2:V1_B",
+  "B2:V2",
+  "C2:V1_B",
+  "C2:V2",
+  "A3:V1_A",
+  "A3:V2",
+  "B3:V1_B",
+  "B3:V2",
+  "C3:V1_B",
+  "C3:V2",
 };
 
 int numero_prueba = 0;
@@ -40,6 +56,8 @@ void setup() {
 #endif
   lcd.begin(16, 2);
   pinMode(INICIO, INPUT);
+  pinMode(LED_R, OUTPUT);
+  pinMode(LED_V, OUTPUT);
   //RELES
   for (int i = 31; i < 51; i = i + 2) {
     pinMode(i, OUTPUT);
@@ -50,16 +68,16 @@ void setup() {
     digitalWrite(RELES_SW[i], HIGH);
   }
   digitalWrite(31, LOW);
+  digitalWrite(LED_R, LOW);
+  digitalWrite(LED_V, LOW);
 }
 
 int get_digital_V1() {
   int n;
   n = numero_prueba;
   if (n == 0 || n == 3 || n == 6 || n == 9 || n == 12 || n == 15) {
-    // delay(1);
     return analogRead(A7);  //sin resistencia humana
   } else {
-    // delay(1);
     return analogRead(A5);  //con resistencia humana
   }
 }
@@ -83,21 +101,25 @@ int tiempo_actualizacion_pantalla = 100;
 void loop() {
   if ((millis() - ultima_vez_actualizo_pantalla) > 16) {
     mostrarPantalla("encendido", "....");
-
+    digitalWrite(LED_V, HIGH);
     ultima_vez_actualizo_pantalla = millis();
   }
   if (digitalRead(INICIO) == HIGH) {
+    digitalWrite(LED_V, LOW);
     numero_prueba = 0;
     mostrarPantalla("INICIO ", "PRUEBAS");
     delay(200);
     auto tiempo_inicio_prueba = micros();
     for (auto& configuracion : CONF_PRUEBAS_RV) {
+      digitalWrite(LED_R, HIGH);
       realizarPrueba(configuracion);
-      for (int i = 0; i < 2; i++) {
-        digitalWrite(RELES_SRV[i], HIGH);
-        digitalWrite(RELES_SW[i], HIGH);
-      }
     }
+    for (int i = 0; i < 2; i++) {
+      digitalWrite(RELES_SRV[i], HIGH);
+      digitalWrite(RELES_SW[i], HIGH);
+    }
+    digitalWrite(LED_R, LOW);
+
     auto tiempo_finalizo_prueba = micros();
     auto tiempo_f_S = (tiempo_finalizo_prueba - tiempo_inicio_prueba) * 1e-6;
     Log("La prueba duro " + String(tiempo_finalizo_prueba - tiempo_inicio_prueba));
@@ -105,17 +127,21 @@ void loop() {
     lcd.println("La prueba duro: ");
     lcd.setCursor(0, 1);
     lcd.println(String(tiempo_f_S) + " S");
-    delay(2000);
+    delay(1000);
     while (digitalRead(INICIO) == LOW) {
       if ((millis() - ultima_vez_actualizo_pantalla) > 16) {
         mostrarPantalla("Presione para", "Cargar data");
+        digitalWrite(LED_V, HIGH);
 
         ultima_vez_actualizo_pantalla = millis();
       }
     }
+    digitalWrite(LED_R, HIGH);
+    digitalWrite(LED_V, LOW);
     enviar_datos_por_data_streamer();
-    // delay(200);
     mostrarPantalla("Datos", "Enviados");
+    digitalWrite(LED_R, LOW);
+    delay(1000);
   }
 }
 void Log(String mensaje) {
